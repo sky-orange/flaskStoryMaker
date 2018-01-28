@@ -1,0 +1,38 @@
+<!doctype html>
+<table>
+<tr>
+<td></td>
+{% if cellInput_1 %}
+<td><a href=""{{ url }}>1"{{ cellInput_1 }}</a></td>
+{% else %}
+  <td><form action="#" method="post"><input type="text" name="cellInput_1"><br>
+	<input type="submit" value="Submit"></form></td>
+{% endif %}
+<td></td>
+</tr>
+<tr>
+{% if cellInput_2 %}
+<td><a href="{{ url }}2">{{ cellInput_2 }}</a></td>
+{% else %}
+  <td><form action="#" method="post"><input type="text" name="cellInput_2"><br>
+	<input type="submit" value="Submit"></form></td>
+{% endif %}
+<td>{{ centreCellText }}</td>
+{% if cellInput_3 %}
+<td><a href="{{ url }}3">{{ cellInput_3 }}</a></td>
+{% else %}
+  <td><form action="#" method="post"><input type="text" name="cellInput_3"><br>
+	<input type="submit" value="Submit"></form></td>
+{% endif %}
+</tr>
+<tr>
+<td></td>
+{% if cellInput_4 %}
+<td><a href="{{ url }}4">{{ cellInput_4 }}</a></td>
+{% else %}
+  <td><form action="#" method="post"><input type="text" name="cellInput_4"><br>
+	<input type="submit" value="Submit"></form></td>
+{% endif %}
+<td></td>
+</tr>
+</table>
