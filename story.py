@@ -16,5 +16,14 @@ def story_page(url):
                            url=url,
                            dictionary=urlCentreText)
 
+@app.route("/<url>/storysofar")
+def story_so_far(url):
+    urlList = []
+    for x in range(1, len(url)):
+        urlList.append(url[:x + 1])
+    return render_template("storySoFar.html",
+                           urlList=urlList,
+                           dictionary=urlCentreText)
+
 
 

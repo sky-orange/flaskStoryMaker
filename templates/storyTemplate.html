@@ -1,5 +1,4 @@
 <!doctype html>
-<a href="/">Return to beginning of story.</a>
 {% macro inputCell(number) -%}
 <td>
     {% if url + number in dictionary %}
@@ -13,6 +12,11 @@
     {% endif %}
 </td>
 {%- endmacro %}
+
+{% if url != "0" %}
+<a href="/">Return to beginning of story.</a><br>
+{% endif %}
+
 <table border="1">
     <tr>
         <td></td>
@@ -30,3 +34,8 @@
         <td></td>
     </tr>
 </table>
+<br>
+
+{% if url != "0" %}
+<a href="{{ url }}/storysofar">See the story so far!</a>
+{% endif %}
