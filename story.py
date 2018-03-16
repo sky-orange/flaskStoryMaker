@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect
+import json
 app = Flask(__name__)
 
 urlCentreText = {"0" : "Start your story"}
@@ -9,8 +10,16 @@ def start():
 
 @app.route("/<url>", methods=["POST", "GET"])
 def story_page(url):
+    global urlCentreText
     if request.method == "POST":
-        urlCentreText[request.form["newUrl"]] = request.form["cellInput"]
+        if "newUrl" in request.form:
+            urlCentreText[request.form["newUrl"]] = request.form["cellInput"]
+        elif "save" in request.form:
+            with open("savedStoryText.json", "w") as outfile:
+                json.dump(urlCentreText, outfile)
+        elif "load" in request.form:
+            with open("savedStoryText.json") as json_data:
+                urlCentreText = json.load(json_data)
 
     return render_template("storyTemplate.html",
                            url=url,
